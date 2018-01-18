@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Barang;
-use App\Jenis;
-use DB;
+use App\User;
 
-class BarangController extends Controller
+class KaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,8 @@ class BarangController extends Controller
     public function index()
     {
         //
-        $barang = DB::table('barangs')
-                    ->join('jenis','barangs.id_jenis','=','jenis.id')
-                    ->select('barangs.*','jenis.jenis_sepatu')->get();
-        return view('barang.index',compact('barang'));
+        $karyawan = User::all();
+        return view('karyawan.index',compact('karyawan'));
     }
 
     /**
@@ -31,8 +27,8 @@ class BarangController extends Controller
     public function create()
     {
         //
-        $jenis = Jenis::all();
-        return view('barang.create',compact('jenis'));
+        $karyawan = User::all();
+        return view('karyawan.create',compact('karyawan'));
     }
 
     /**
@@ -44,16 +40,6 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
-        $barang = new Barang();
-        $barang->merk = $request->a;
-        $barang->stok = $request->b;
-        $barang->harga_beli = $request->c;
-        $barang->harga_jual = $request->f;
-        $barang->warna = $request->d;
-        $barang->ukuran = $request->e;
-        $barang->id_jenis = $request->jenis;
-        $barang->save();
-        return redirect('barang');
     }
 
     /**
@@ -76,9 +62,6 @@ class BarangController extends Controller
     public function edit($id)
     {
         //
-        $barang = Barang::findOrFail($id);
-        $jenis = Jenis::all();
-        return view('barang.edit',compact('barang','jenis'));
     }
 
     /**
@@ -91,16 +74,6 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $barang =Barang::findOrFail($id);
-        $barang->merk = $request->a;
-        $barang->stok = $request->b;
-        $barang->harga_beli = $request->c;
-        $barang->harga_jual = $request->f;
-        $barang->warna = $request->d;
-        $barang->ukuran = $request->e;
-        $barang->id_jenis = $request->jenis;
-        $barang->save();
-        return redirect('barang');
     }
 
     /**
@@ -112,8 +85,5 @@ class BarangController extends Controller
     public function destroy($id)
     {
         //
-        $barang = Barang::findOrFail($id);
-        $barang->delete();
-        return redirect('barang');
     }
 }

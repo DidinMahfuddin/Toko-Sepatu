@@ -6,7 +6,7 @@
 	<center><h1>Jenis Sepatu</h1></center>
 	<div class="panel panel-primary">
 		<div class="panel-heading">Jenis Sepatu
-		<div class="panel-title pull-right"><a href="/admin/jenis/create">Tambah Data</a></div></div>
+		<div class="panel-title pull-right"><a href="jenis/create">Tambah Data</a></div></div>
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -19,7 +19,7 @@
 				@foreach($jenis as $data)
 					<tr>
 						<td>{{$data->jenis_sepatu}}</td>
-						<td><a class="btn btn-warning" href="/admin/jenis/{{$data->id}}/edit">Edit</a></td>
+						<td><a class="btn btn-warning" href="jenis/{{$data->id}}/edit">Edit</a></td>
 							<td><form action="{{route('jenis.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
@@ -34,6 +34,5 @@
 		</div>
 	</div>
 	</div>
-</div>
 </div>
 @endsection

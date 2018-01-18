@@ -44,7 +44,7 @@ class JenisController extends Controller
         $jenis->jenis_sepatu = $request->a;
         $jenis->save();
 
-        return redirect('/admin/jenis');
+        return redirect('jenis');
     }
 
     /**
@@ -84,7 +84,7 @@ class JenisController extends Controller
         $jenis = Jenis::findOrFail($id);
         $jenis->jenis_sepatu = $request->a;
         $jenis->save();
-        return redirect('/admin/jenis');
+        return redirect('jenis');
     }
 
     /**
@@ -98,6 +98,6 @@ class JenisController extends Controller
         //
         $jenis = Jenis::findOrFail($id);
         $jenis->delete();
-        return redirect('/admin/jenis');
+        return redirect('jenis');
     }
 }

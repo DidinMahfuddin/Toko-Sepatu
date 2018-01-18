@@ -10,6 +10,7 @@
 
 		<div class="panel-body">
 			@include('layouts._flash')
+			
 			@if($errors->any())
 			<div class="flash alert-danger">
 				@foreach($errors->all() as $err)
@@ -36,15 +37,6 @@
 				<div class="form-group">
 					<label class="control-lable">Tanggal</label>
 					<input type="date" name="c" class="form-control" required="">
-				</div>
-				
-				<div class="form-group">
-					<label class="control-lable">Harga</label>
-					<select class="form-control" name="d">
-					@foreach($barang as $b)
-					<option value="{{$b->harga}}">{{$b->merk}}->{{$b->harga}}</option>
-					@endforeach
-					</select>
 				</div>
 
 				<div class="form-group">

@@ -58,7 +58,7 @@ class PembelianController extends Controller
         $barang->save();
         $pembelian->total_harga = $request->d*$request->e;
         $pembelian->save();
-        return redirect('/admin/pembelian');
+        return redirect('pembelian');
     }
 
     /**
@@ -108,7 +108,7 @@ class PembelianController extends Controller
         $barang->save();
         $pembelian->total_harga = $request->d*$request->e;
         $pembelian->save();
-        return redirect('/admin/pembelian');
+        return redirect('pembelian');
     }
 
     /**
@@ -122,6 +122,6 @@ class PembelianController extends Controller
         //
         $pembelian = Pembelian::findOrFail($id);
         $pembelian->delete();
-        return redirect('/admin/pembelian');
+        return redirect('pembelian');
     }
 }

@@ -53,20 +53,19 @@ class TransaksiController extends Controller
         $transaksi->kode_transaksi = $request->a;
         $transaksi->id_barang = $request->barang;
         $transaksi->tanggal = $request->c;
-        $transaksi->harga = $request->d;
         $transaksi->jumlah = $request->e;
         $barang->stok = $barang->stok-$request->e;
         $barang->save();
-        $transaksi->total_harga = $request->d*$request->e;
+        $transaksi->total_harga = $barang->harga_jual*$request->e;
         $transaksi->save();
       }
         else{
             Session::flash("flash_notification",[
                 "level"=>"danger",
                 "message"=>"Stok Tidak Mencukupi"]);
-            return redirect('/admin/transaksi/create');
+            return redirect('transaksi/create');
         }
-        return redirect('/admin/transaksi');
+        return redirect('transaksi');
     }
 
     /**
@@ -109,13 +108,12 @@ class TransaksiController extends Controller
         $transaksi->kode_transaksi = $request->a;
         $transaksi->id_barang = $request->merk;
         $transaksi->tanggal = $request->b;
-        $transaksi->harga = $request->c;
         $transaksi->jumlah = $request->d;
         $barang->stok = $barang->stok-$request->d;
         $barang->save();
-        $transaksi->total_harga = $request->c*$request->d;
+        $transaksi->total_harga = $barang->harga_jual*$request->d;
         $transaksi->save();
-        return redirect('/admin/transaksi');
+        return redirect('transaksi');
     }
 
     /**
@@ -129,7 +127,7 @@ class TransaksiController extends Controller
         //
         $transaksi = Penjualan::findOrFail($id);
         $transaksi->delete();
-        return redirect('/admin/transaksi');
+        return redirect('transaksi');
     }
     
 }

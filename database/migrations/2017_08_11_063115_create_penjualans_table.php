@@ -18,7 +18,6 @@ class CreatePenjualansTable extends Migration
             $table->string('kode_transaksi');
             $table->integer('id_barang')->unsigned();
             $table->date('tanggal');
-            $table->integer('harga');
             $table->integer('jumlah');
             $table->integer('total_harga');
             $table->foreign('id_barang')->references('id')->on('barangs')

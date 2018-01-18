@@ -6,7 +6,7 @@
 	<center><h1>Transaksi Penjualan</h1></center>
 	<div class="panel panel-primary">
 		<div class="panel-heading">Transaksi Penjualan
-		<div class="panel-title pull-right"><a href="/admin/transaksi/create">Tambah Data</a></div></div>
+		<div class="panel-title pull-right"><a href="transaksi/create">Tambah Data</a></div></div>
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -14,7 +14,6 @@
 						<th>Kode Transaksi</th>
 						<th>Merk</th>
 						<th>Tanggal Transaksi</th>
-						<th>Harga</th>
 						<th>Jumlah</th>
 						<th>Total Harga</th>
 						<th colspan="2">Action</th>
@@ -26,10 +25,9 @@
 						<td>{{$data->kode_transaksi}}</td>
 						<td>{{$data->merk}}</td>
 						<td>{{$data->tanggal}}</td>
-						<td>Rp.{{$data->harga}}</td>
 						<td>{{$data->jumlah}}</td>
-						<td>Rp.{{$data->total_harga}}</td>
-						<td><a class="btn btn-warning" href="/admin/transaksi/{{$data->id}}/edit">Edit</a></td>
+						<td>Rp.{{number_format($data->total_harga)}},-</td>
+						<td><a class="btn btn-warning" href="transaksi/{{$data->id}}/edit">Edit</a></td>
 							<td><form action="{{route('transaksi.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
@@ -43,7 +41,6 @@
 			</table>	
 		</div>
 	</div>
-</div>
 </div>
 </div>
 @endsection

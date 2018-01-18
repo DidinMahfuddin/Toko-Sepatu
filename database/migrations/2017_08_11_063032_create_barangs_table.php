@@ -17,7 +17,8 @@ class CreateBarangsTable extends Migration
              $table->increments('id');
             $table->string('merk');
             $table->integer('stok');
-            $table->integer('harga');
+            $table->integer('harga_beli');
+            $table->integer('harga_jual');
             $table->string('warna');
             $table->integer('ukuran');
             $table->integer('id_jenis')->unsigned();

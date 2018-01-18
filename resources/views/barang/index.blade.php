@@ -6,14 +6,15 @@
 	<center><h1>Data Barang</h1></center>
 	<div class="panel panel-primary">
 		<div class="panel-heading">Data Barang
-		<div class="panel-title pull-right"><a href="/admin/barang/create">Tambah Data</a></div></div>
+		<div class="panel-title pull-right"><a href="barang/create">Tambah Data</a></div></div>
 		<div class="panel-body">
 			<table class="table">
 				<thead>
 					<tr>
 						<th>Merk</th>
 						<th>Stok</th>
-						<th>Harga</th>
+						<th>Harga Beli</th>
+						<th>Harga Jual</th>
 						<th>Warna</th>
 						<th>Ukuran</th>
 						<th>Jenis Sepatu</th>
@@ -25,11 +26,12 @@
 					<tr>
 						<td>{{$data->merk}}</td>
 						<td>{{$data->stok}}</td>
-						<td>Rp.{{$data->harga}}</td>
+						<td>Rp.{{number_format($data->harga_beli)}},-</td>
+						<td>Rp.{{number_format($data->harga_jual)}},-</td>
 						<td>{{$data->warna}}</td>
 						<td>{{$data->ukuran}}</td>
 						<td>{{$data->jenis_sepatu}}</td>
-						<td><a class="btn btn-warning" href="/admin/barang/{{$data->id}}/edit">Edit</a></td>
+						<td><a class="btn btn-warning" href="barang/{{$data->id}}/edit">Edit</a></td>
 							<td><form action="{{route('barang.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
@@ -43,7 +45,6 @@
 			</table>	
 		</div>
 	</div>
-</div>
 </div>
 </div>
 @endsection

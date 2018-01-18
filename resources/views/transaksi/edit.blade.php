@@ -40,15 +40,6 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-lable">Harga</label>
-					<select class="form-control" name="c">
-					@foreach($barang as $b)
-					<option value="{{$b->harga}}">{{$b->harga}}</option>
-					@endforeach
-					</select>
-				</div>
-
-				<div class="form-group">
 					<label class="control-lable">Jumlah</label>
 					<input type="text" name="d" class="form-control" value="{{$transaksi->jumlah}}" required="">
 				</div>

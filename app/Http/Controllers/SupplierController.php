@@ -46,7 +46,7 @@ class SupplierController extends Controller
         $supplier->alamat = $request->b;
         $supplier->no = $request->c;
         $supplier->save();
-        return redirect('/admin/supplier');
+        return redirect('supplier');
     }
 
     /**
@@ -88,7 +88,7 @@ class SupplierController extends Controller
         $supplier->alamat = $request->b;
         $supplier->no = $request->c;
         $supplier->save();
-        return redirect('/admin/supplier');
+        return redirect('supplier');
     }
 
     /**
@@ -102,6 +102,6 @@ class SupplierController extends Controller
         //
         $supplier = Supplier::findOrFail($id);
         $supplier->delete();
-        return redirect('/admin/supplier');
+        return redirect('supplier');
     }
 }

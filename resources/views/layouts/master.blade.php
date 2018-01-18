@@ -89,7 +89,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="{{asset('tamplate/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Admin</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -97,7 +97,7 @@ desired effect
                 <img src="{{asset('tamplate/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
 
                 <p>
-                  Admin - Web Developer
+                  {{Auth::user()->name}} - Web Developer
                   <small>Member since January. 2018</small>
                 </p>
               </li>
@@ -138,7 +138,7 @@ desired effect
           <img src="{{asset('tamplate/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Admin</p>
+          <p>{{Auth::user()->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -159,23 +159,16 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('admin/jenis')}}">Jenis Sepatu</a></li>
-            <li><a href="{{url('admin/barang')}}">Barang</a></li>
+            <li><a href="{{url('jenis')}}">Jenis Sepatu</a></li>
+            <li><a href="{{url('barang')}}">Barang</a></li>
           </ul>
         </li>
-        <li><a href="{{url('admin/supplier')}}"><i class="fa fa-link"></i> <span>Supplier</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Data Transaksi</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{url('admin/pembelian')}}">Pembelian</a></li>
-            <li><a href="{{url('admin/transaksi')}}">Penjualan</a></li>
-          </ul>
-        </li>
-        <li><a href="{{url('admin/laporan')}}"><i class="fa fa-link"></i> <span>Laporan</span></a></li>
+        <li><a href="{{url('supplier')}}"><i class="fa fa-link"></i> <span>Supplier</span></a></li>
+        <li><a href="{{url('transaksi')}}"><i class="fa fa-link"></i> <span>Transaksi Penjualan</span></a></li>
+        @role('Admin')
+        <li><a href="{{url('laporan')}}"><i class="fa fa-link"></i> <span>Laporan</span></a></li>
+        <li><a href="{{url('karyawan')}}"><i class="fa fa-link"></i> <span>Karyawan</span></a></li>
+        @endrole
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -213,7 +206,7 @@ desired effect
     </div>
     <!-- Default to the left -->
     <strong>SMK ASSALAAM BANDUNG &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
-  </footer>
+  </foote
 
   <!-- Control Sidebar -->
   

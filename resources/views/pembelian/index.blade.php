@@ -6,7 +6,7 @@
 	<center><h1>Transaksi Pembelian</h1></center>
 	<div class="panel panel-primary">
 		<div class="panel-heading">Transaksi Pembelian
-		<div class="panel-title pull-right"><a href="/admin/pembelian/create">Tambah Data</a></div></div>
+		<div class="panel-title pull-right"><a href="pembelian/create">Tambah Data</a></div></div>
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -29,7 +29,7 @@
 						<td>Rp.{{$data->harga}}</td>
 						<td>{{$data->jumlah}}</td>
 						<td>Rp.{{$data->total_harga}}</td>
-						<td><a class="btn btn-warning" href="/admin/pembelian/{{$data->id}}/edit">Edit</a></td>
+						<td><a class="btn btn-warning" href="pembelian/{{$data->id}}/edit">Edit</a></td>
 							<td><form action="{{route('pembelian.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
