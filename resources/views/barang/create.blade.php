@@ -9,8 +9,13 @@
 		<div class="panel-title pull-right"><a href="{{URL::previous()}}">Kembali</a></div></div>
 
 		<div class="panel-body">
-			<form action="{{route('barang.store')}}" method = "post">
+			<form action="{{route('barang.store')}}" method = "post" files="true" enctype="multipart/form-data">
 				{{csrf_field()}}
+				<div class="form-group">
+                    <label for="gambar">Gambar</label>
+                    <input type="file" id="gambar" name="gambar">
+                </div>
+
 				<div class="form-group">
 					<label class="control-lable">Merk</label>
 					<input type="text" name="a" class="form-control" required="">
@@ -32,13 +37,13 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-lable">Warna</label>
-					<input type="text" name="d" class="form-control" required="">
-				</div>
-
-				<div class="form-group">
-					<label class="control-lable">Ukuran</label>
-					<input type="text" name="e" class="form-control" required="">
+					<select name="d" class="form-control"><option value="Hitam">Hitam</option>
+														<option value="Merah">Merah</option>
+														<option value="Biru">Biru</option>
+														<option value="Putih">Putih</option>
+														<option value="Hijau">Hijau</option></select>
+					<!-- <label class="control-lable">Warna</label>
+					<input type="text" name="d" class="form-control" required=""> -->
 				</div>
 
 				<div class="form-group">

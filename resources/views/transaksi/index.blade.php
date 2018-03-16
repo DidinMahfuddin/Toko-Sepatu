@@ -27,7 +27,7 @@
 						<td>{{$data->tanggal}}</td>
 						<td>{{$data->jumlah}}</td>
 						<td>Rp.{{number_format($data->total_harga)}},-</td>
-						<td><a class="btn btn-warning" href="transaksi/{{$data->id}}/edit">Edit</a></td>
+						<!-- <td><a class="btn btn-warning" href="transaksi/{{$data->id}}/edit">Edit</a></td> -->
 							<td><form action="{{route('transaksi.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">

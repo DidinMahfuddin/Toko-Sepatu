@@ -15,7 +15,7 @@
 						<th>No</th>
 						<th>Tanggal Awal</th>
 						<th>Tanggal Akhir</th>
-						<th>Total Harga</th>
+						<th>Uang Masuk</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,7 +35,6 @@
 			Total Uang Masuk Dari Tanggal {{$a}} Sampai {{$b}}: Rp.{{number_format($sum)}},-
 		</div>
 	</div>
-</div>
 </div>
 </div>
 @endsection

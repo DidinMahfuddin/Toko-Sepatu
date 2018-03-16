@@ -9,17 +9,16 @@
 		<div class="panel-title pull-right"></div></div>
 		<div class="panel-body">
 			<table class="table">
-				<form action="{{url('/admin/laporan/detail')}}" method="post">
+				<form action="{{url('admin/laporan/detail')}}" method="post">
 				{{csrf_field()}}
 				<div class="form-group">
 					<label class="control-lable">Tanggal Awal</label>
 					<input type="date" name="a" required="">
-				</div>
-				<div class="form-group">
+
 					<label class="control-lable">Tanggal Akhir</label>
 					<input type="date" name="b" required="">
 				</div>
-					<input type="submit" class="btn btn-succes" name="submit" value="submit">
+					<input type="submit" name="submit" value="Cetak">
 				</form>
 			</table>	
 		</div>

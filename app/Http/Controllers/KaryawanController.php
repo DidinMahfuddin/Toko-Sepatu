@@ -40,6 +40,13 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         //
+        $jenis = new User();
+        $jenis->name = $request->a;
+        $jenis->email = $request->b;
+        $jenis->password =bcrypt($request->c);
+        $jenis->save();
+
+        return redirect('admin/karyawan');
     }
 
     /**
@@ -62,6 +69,8 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         //
+        $karyawan = User::findOrFail($id);
+        return view('karyawan.edit',compact('karyawan'));
     }
 
     /**
@@ -74,6 +83,12 @@ class KaryawanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $karyawan = User::findOrFail($id);
+        $karyawan->name = $request->a;
+        $karyawan->email = $request->b;
+        $karyawan->password = $request->c;
+        $karyawan->save();
+        return redirect('admin/karyawan');
     }
 
     /**
@@ -85,5 +100,8 @@ class KaryawanController extends Controller
     public function destroy($id)
     {
         //
+        $karyawan = User::findOrFail($id);
+        $karyawan->delete();
+        return redirect('admin/karyawan');
     }
 }

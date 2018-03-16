@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     //
-    protected $fillable = ['merk','stok','harga','warna','ukuran','id_jenis'];
-    protected $visible = ['merk','stok','harga','warna','ukuran','id_jenis'];
+    protected $fillable = ['gambar','merk','stok','harga','warna','id_jenis'];
+    protected $visible = ['gambar','merk','stok','harga','warna','id_jenis'];
     public $timestamps = true ;
 
     public function jenis()

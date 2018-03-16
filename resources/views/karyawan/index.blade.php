@@ -22,7 +22,7 @@
 						<td>{{$data->name}}</td>
 						<td>{{$data->email}}</td>
 						<td><a class="btn btn-warning" href="karyawan/{{$data->id}}/edit">Edit</a></td>
-							<td><form action="{{route('barang.destroy',$data->id)}}" method="post">
+							<td><form action="{{route('karyawan.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
 								<input type="submit" class="btn btn-danger" value="Delete">

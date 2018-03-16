@@ -46,24 +46,40 @@ class TransaksiController extends Controller
     public function store(PenjualanRequest $request)
     {
         //
-        $barang = Barang::findOrFail($request->barang);
-        if ($barang->stok >= $request->e) 
-         {
-        $transaksi = new Penjualan();
-        $transaksi->kode_transaksi = $request->a;
-        $transaksi->id_barang = $request->barang;
-        $transaksi->tanggal = $request->c;
-        $transaksi->jumlah = $request->e;
-        $barang->stok = $barang->stok-$request->e;
-        $barang->save();
-        $transaksi->total_harga = $barang->harga_jual*$request->e;
-        $transaksi->save();
-      }
-        else{
-            Session::flash("flash_notification",[
-                "level"=>"danger",
-                "message"=>"Stok Tidak Mencukupi"]);
-            return redirect('transaksi/create');
+      //   $barang = Barang::findOrFail($request->barang);
+      //   if ($barang->stok >= $request->e) 
+      //    {
+      //   $transaksi = new Penjualan();
+      //   $transaksi->kode_transaksi = $request->a;
+      //   $transaksi->id_barang = $request->barang;
+      //   $transaksi->tanggal = $request->c;
+      //   $transaksi->jumlah = $request->e;
+      //   $barang->stok = $barang->stok-$request->e;
+      //   $barang->save();
+      //   $transaksi->total_harga = $barang->harga_jual*$request->e;
+      //   $transaksi->save();
+      // }
+      //   else{
+      //       Session::flash("flash_notification",[
+      //           "level"=>"danger",
+      //           "message"=>"Stok Tidak Mencukupi"]);
+      //       return redirect('transaksi/create');
+      //   }
+
+
+        for ($id=0; $id < count($request->id_barang); $id++) { 
+            $transaksi = new Penjualan;
+            $transaksi->kode_transaksi = $request->kode_transaksi[$id];
+            $transaksi->id_barang = $request->id_barang[$id];
+            $transaksi->tanggal = $request->tanggal[$id];
+            $transaksi->jumlah = $request->jumlah[$id];
+
+            $barang = Barang::findOrFail($request->id_barang[$id]);
+            $barang->stok = $barang->stok - $request->jumlah[$id];
+
+            $transaksi->total_harga = $request->jumlah[$id]*$barang->harga_jual;
+            $barang->save();
+            $transaksi->save();
         }
         return redirect('transaksi');
     }

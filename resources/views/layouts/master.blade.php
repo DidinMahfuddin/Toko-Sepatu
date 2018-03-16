@@ -152,6 +152,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
+        @if(Auth::check())
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Stok Barang</span>
             <span class="pull-right-container">
@@ -163,11 +164,12 @@ desired effect
             <li><a href="{{url('barang')}}">Barang</a></li>
           </ul>
         </li>
-        <li><a href="{{url('supplier')}}"><i class="fa fa-link"></i> <span>Supplier</span></a></li>
+        <!-- <li><a href="{{url('supplier')}}"><i class="fa fa-link"></i> <span>Supplier</span></a></li> -->
         <li><a href="{{url('transaksi')}}"><i class="fa fa-link"></i> <span>Transaksi Penjualan</span></a></li>
+        @endif
         @role('Admin')
-        <li><a href="{{url('laporan')}}"><i class="fa fa-link"></i> <span>Laporan</span></a></li>
-        <li><a href="{{url('karyawan')}}"><i class="fa fa-link"></i> <span>Karyawan</span></a></li>
+        <li><a href="{{url('admin/laporan')}}"><i class="fa fa-link"></i> <span>Laporan</span></a></li>
+        <li><a href="{{url('admin/karyawan')}}"><i class="fa fa-link"></i> <span>Karyawan</span></a></li>
         @endrole
       </ul>
       <!-- /.sidebar-menu -->

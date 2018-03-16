@@ -35,6 +35,8 @@ class BarangController extends Controller
         return view('barang.create',compact('jenis'));
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,15 +46,21 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
-        $barang = new Barang();
-        $barang->merk = $request->a;
-        $barang->stok = $request->b;
-        $barang->harga_beli = $request->c;
-        $barang->harga_jual = $request->f;
-        $barang->warna = $request->d;
-        $barang->ukuran = $request->e;
-        $barang->id_jenis = $request->jenis;
-        $barang->save();
+
+        $barang = $request->file('gambar');
+        $namaFile = $barang->getClientOriginalName();
+        $request->file('gambar')->move('uploadgambar', $namaFile);
+        $barang = new Barang($request->all());
+        $barang->gambar = $namaFile;
+            
+            $barang->merk = $request->a;
+            $barang->stok = $request->b;
+            $barang->harga_beli = $request->c;
+            $barang->harga_jual = $request->f;
+            $barang->warna = $request->d;
+            $barang->id_jenis = $request->jenis;
+            $barang->save();
+        
         return redirect('barang');
     }
 
@@ -97,7 +105,6 @@ class BarangController extends Controller
         $barang->harga_beli = $request->c;
         $barang->harga_jual = $request->f;
         $barang->warna = $request->d;
-        $barang->ukuran = $request->e;
         $barang->id_jenis = $request->jenis;
         $barang->save();
         return redirect('barang');

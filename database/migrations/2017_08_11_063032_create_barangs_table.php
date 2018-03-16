@@ -15,12 +15,12 @@ class CreateBarangsTable extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
              $table->increments('id');
+             $table->string('gambar');
             $table->string('merk');
             $table->integer('stok');
             $table->integer('harga_beli');
             $table->integer('harga_jual');
             $table->string('warna');
-            $table->integer('ukuran');
             $table->integer('id_jenis')->unsigned();
             $table->foreign('id_jenis')->references('id')->on('jenis')
                 ->onUpdate('cascade')->onDelete('cascade');

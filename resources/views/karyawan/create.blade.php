@@ -9,7 +9,7 @@
 		<div class="panel-title pull-right"><a href="{{URL::previous()}}">Kembali</a></div></div>
 
 		<div class="panel-body">
-			<form action="{{route('jenis.store')}}" method = "post">
+			<form action="{{route('karyawan.store')}}" method = "post">
 				{{csrf_field()}}
 				<div class="form-group">
 					<label class="control-lable">Nama</label>

@@ -13,6 +13,10 @@
 				<input type="hidden" name="_method" value="PUT">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 
+				<div>
+					<label class="control-lable">Gambar</label>
+					<input type="file" name="gambar" class="form-control" value="{{$barang->gambar}}" required="">
+				</div>
 				<div class="form-group">
 					<label class="control-lable">Merk</label>
 					<input type="text" name="a" class="form-control" value="{{$barang->merk}}" required="">
@@ -25,22 +29,17 @@
 
 				<div class="form-group">
 					<label class="control-lable">Harga Beli</label>
-					<input type="text" name="c" class="form-control" value="{{$barang->harga}}" required="">
+					<input type="text" name="c" class="form-control" value="{{$barang->harga_beli}}" required="">
 				</div>
 
 				<div class="form-group">
 					<label class="control-lable">Harga Jual</label>
-					<input type="text" name="f" class="form-control" required="">
+					<input type="text" name="f" class="form-control" value="{{$barang->harga_jual}}" required="">
 				</div>
 
 				<div class="form-group">
 					<label class="control-lable">Warna</label>
 					<input type="text" name="d" class="form-control" value="{{$barang->warna}}" required="">
-				</div>
-
-				<div class="form-group">
-					<label class="control-lable">Ukuran</label>
-					<input type="text" name="e" class="form-control" value="{{$barang->ukuran}}" required="">
 				</div>
 
 				<div class="form-group">
