@@ -22,7 +22,7 @@
 				<?php
 				$no = 1;
 				?>
-					@foreach($penjualan1 as $data)
+					@foreach($penjualan as $data)
 					<tr>
 						<td>{{$no++}}</td>
 						<td>{{$a}}</td>

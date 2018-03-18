@@ -37,7 +37,7 @@ class LaporanController extends Controller
         $sum = $penjualan1->sum('total_harga');
       $user = Penjualan::all();
 
-      $pdf = PDF::loadView('laporan.pdf', compact('user','a','b','sum'));
+      $pdf = PDF::loadView('laporan/pdf', compact('user','a','b','sum'));
       return $pdf->download('laporan.pdf');
 
     }

@@ -7,7 +7,7 @@
 <body>
 	<center><h1>Laporan Uang Masuk</h1></center>
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-bordered" border="1">
 		<thead>
 			<tr>
 			<th>Tanggal</th>

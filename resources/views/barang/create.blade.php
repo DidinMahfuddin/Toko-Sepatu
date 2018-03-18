@@ -11,7 +11,7 @@
 		<div class="panel-body">
 			<form action="{{route('barang.store')}}" method = "post" files="true" enctype="multipart/form-data">
 				{{csrf_field()}}
-				<div class="form-group">
+			 	<div class="form-group">
                     <label for="gambar">Gambar</label>
                     <input type="file" id="gambar" name="gambar">
                 </div>

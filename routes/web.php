@@ -33,6 +33,10 @@ Route::get('/i','UserController@index');
 	Route::get('/pilihan/{id}','SepatuController@filter');
 	Route::get('/detail/{id}','SepatuController@detail');
 
+	Route::group(['middleware'=>'cors'],function(){
+		Route::get('/contoh','ApiController@listdata');
+	});
+
 	
 Auth::routes();
 
